@@ -87,7 +87,7 @@ public class UserDaoHibernateImpl implements UserDao {
         List<User> list = new ArrayList<>();
         try (Session session = factory.getCurrentSession()) {
             tx = session.beginTransaction();
-            list = (List<User>) session.createSQLQuery("SELECT * FROM usersTable").addEntity(User.class).list();
+            list =  session.createSQLQuery("SELECT * FROM usersTable").addEntity(User.class).list();
             tx.commit();
         } catch (HibernateException e) {
             if (tx != null) {
