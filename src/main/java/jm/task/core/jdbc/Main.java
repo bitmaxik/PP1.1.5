@@ -5,8 +5,7 @@ import jm.task.core.jdbc.service.UserServiceImpl;
 
 public class Main {
     public static void main(String[] args) {
-        UserService userDao = new UserServiceImpl() {
-        };
+        UserService userDao = new UserServiceImpl(); // откуда тут были скобки сложно сказать, мистика))
 
         userDao.createUsersTable();
 

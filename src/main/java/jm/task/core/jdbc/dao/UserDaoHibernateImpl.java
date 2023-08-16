@@ -6,10 +6,7 @@ import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
-
-import javax.persistence.Entity;
 import javax.persistence.Query;
-import java.util.ArrayList;
 import java.util.List;
 
 public class UserDaoHibernateImpl implements UserDao {
@@ -86,7 +83,7 @@ public class UserDaoHibernateImpl implements UserDao {
     public List<User> getAllUsers() {
         List<User> list;
         Session session = factory.openSession();
-        Query query = session.createQuery("FROM User");
+        Query query = session.createQuery("FROM User", User.class);
         list = query.getResultList();
         session.close();
         return list;
